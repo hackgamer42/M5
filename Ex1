@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fontnobiliarnau_prova_3_m3_uf1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author arnau
+ */
+public class Ex1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+        int[] numeros = new int[10];
+        int[] aux = new int[numeros.length - 1];
+        int posicion;
+
+        for (int a = 0; a < numeros.length; a++) {
+            System.out.printf("Introduce el numero para la posición %d\n", a);
+            while (!lector.hasNextInt()) {
+                System.out.println("No has introducido el tipo de valor correcto.");
+                lector.next();
+            }
+            numeros[a] = lector.nextInt();
+        }
+
+        System.out.println("Posición del elemento a borrar:");
+        while (!lector.hasNextInt()) {
+            System.out.println("No has introducido el tipo de valor correcto.");
+            lector.next();
+        }
+        posicion = lector.nextInt();
+
+        for (int b = 0; b < numeros.length; b++) {
+            if (b >= posicion && b < numeros.length - 1) {
+                aux[b] = numeros[b + 1];
+            } else if (b == aux.length) {
+                break;
+            } else {
+                aux[b] = numeros[b];
+            }
+        }
+
+        System.out.println("Array resultante: ");
+
+        for (int c = 0; c < aux.length; c++) {
+            System.out.printf("posicion %d: %d\n", c, aux[c]);
+        }
+    }
+
+}
